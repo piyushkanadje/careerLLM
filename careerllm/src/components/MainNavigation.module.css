@@ -1,0 +1,33 @@
+
+  .navLogo {
+    color: red;
+  }
+  
+  .navBox {
+     /* background-color: #F9F5F6; */
+    background-color: white;
+    height: 70px;   
+  }
+
+  .navLink {
+    /* color: #393646; */
+    color: black;
+    font-size: 20px !important;
+    font-weight: 300;
+    margin: 10px 11px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .navLink:hover{
+    /* color: #393646; */
+    color: #FF8b00;
+  }
+  .logoText {
+    font-family: 'Oregano',cursive;
+    font-size: 40px;
+    /* color: #393646; */
+    color: #FF8b00;
+    margin: auto;
+  }
+ 
+  
