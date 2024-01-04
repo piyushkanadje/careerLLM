@@ -4,15 +4,37 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RegisterComponent from './components/RegisterComponent';
 import LoginComponent from "./components/LoginComponent";
+import RootLayout from "./components/RootLayout";
+import Home from "./components/Home";
+import "./App.css";
+import './App.css';
+import { Fragment } from 'react';
+import  {createBrowserRouter, RouterProvider} from 'react-router-dom';
+const router = createBrowserRouter([{
+  path: '/',  
+  element: <RootLayout/>,
+  children: [
+    {
+      path: "/",
+      element: <Home/>,
+    },
+    {
+      path:"/login",
+      element: <LoginComponent/>
+    },
+    {
+      path:"/register",
+      element:<RegisterComponent />
 
+    },
+  ]
+}])
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LoginComponent />} />
-        <Route path="/register" exact element={<RegisterComponent />} />
-      </Routes>
-    </Router>
+    
+    <Fragment>
+      <RouterProvider router={router}/>
+    </Fragment>
   );
 }
 
