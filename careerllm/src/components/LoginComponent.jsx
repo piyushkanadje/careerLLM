@@ -1,11 +1,16 @@
 import React from 'react';
 import {MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 import './LoginComponent.css';
 
 const LoginComponent = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/home');
+  }
 
     return (
         <MDBContainer fluid className="p-3 my-5 h-custom">
@@ -49,7 +54,7 @@ const LoginComponent = () => {
           </div>
 
           <div className='text-center mt-4 pt-2'>
-            <MDBBtn className="mb-0 px-5 w-100" size='lg'>Login</MDBBtn>
+            <MDBBtn onClick = {handleLogin} className="mb-0 px-5 w-100" size='lg'>Login</MDBBtn>
             <p className="small fw-bold mt-2 pt-1 mb-2">Don't have an account? <Link to="/register" className="link-danger">
         Register
       </Link></p>
