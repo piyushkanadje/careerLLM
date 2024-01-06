@@ -11,7 +11,77 @@ from langchain.prompts.chat import (
 from transformers import GPT2Tokenizer
 import json
 import os
+# import resumeparser
+import re
+import json
+# from './resumeparser'
 
+# Regular expression pattern to match the JSON formatted text
+def extract_from_text(text):
+    # Patterns to find MatchScore and Suggestions in different formats
+    patterns = {
+        'match_score': [
+            r"MatchScore:\s*(\d+%)",  # MatchScore: 60%
+            r"Match Score:\s*(\d+%)",  # Match Score: 60%
+        ],
+        'suggestions': [
+            r"Suggestions:\s*\"(.*?)\"",  # Suggestions: "Some suggestion."
+            r"Suggestions:\s*(.*?)$",  # Suggestions: Some suggestion.
+        ]
+    }
+
+    # Initialize default values
+    match_score = "Not found"
+    suggestions = "Not found"
+
+    # Search for each pattern and update if found
+    for key, pattern_list in patterns.items():
+        for pattern in pattern_list:
+            match = re.search(pattern, text, re.MULTILINE | re.DOTALL)
+            if match:
+                if key == 'match_score':
+                    match_score = match.group(1)
+                elif key == 'suggestions':
+                    suggestions = match.group(1)
+                break  # Stop searching if a match is found
+
+    return match_score, suggestions
+def parse_json_like_string(json_like_str):
+    # Remove JavaScript-style comments (anything following //)
+    cleaned_str = re.sub(r"//.*", "", json_like_str)
+
+    # Ensure percentage values are quoted
+    cleaned_str = re.sub(r'(\d+)%', r'"\1%"', cleaned_str)
+
+    try:
+        return json.loads(cleaned_str)
+    except json.JSONDecodeError:
+        return None
+def get_text(text):
+    pattern_json = r"```json\n(.*?)\n```"
+    match_json = re.search(pattern_json, text, re.DOTALL)
+
+    if match_json:
+        # Extract the JSON-like string
+        json_like_str = match_json.group(1)
+
+        # Parse the cleaned JSON-like string
+        data = parse_json_like_string(json_like_str)
+
+        if data:
+            # Extract MatchScore and Suggestions
+            match_score = data.get("MatchScore", "Not found")
+            suggestions = data.get("Suggestions", "Not found")
+            return {"MatchScore":match_score, "Suggestions":suggestions} if match_score!="Not found" and suggestions != "Not found" else None
+        else:
+            print("Error parsing JSON-like data")
+            match_score, suggestions = extract_from_text(text)
+            return {"MatchScore":match_score, "Suggestions":suggestions} if match_score!="Not found" and suggestions != "Not found" else None
+    else:
+        
+        print("No JSON-like data found in the text")
+        match_score, suggestions = extract_from_text(text)
+        return {"MatchScore":match_score, "Suggestions":suggestions} if match_score!="Not found" and suggestions != "Not found" else None
 
 def preprocess_text(text):
     tokenizer = GPT2Tokenizer.from_pretrained('EleutherAI/gpt-neo-2.7B')
@@ -166,7 +236,11 @@ def analyze_job(job_desc = '', output_dict = None):
                 format_instructions=format_instructions )
             model = ChatLlamaAPI(client=llama)
             chat = model(messages)
-            output_jm_dict = output_parser.parse(chat.content)
+            # output_jm_dict = output_parser.parse(chat.content)
+            # print(chat.content)
+            
+            output_jm_dict = get_text(chat.content)
+            print(output_jm_dict)
         except:
             pass
     return output_jm_dict

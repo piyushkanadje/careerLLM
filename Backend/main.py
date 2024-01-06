@@ -31,8 +31,12 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain.chains import ConversationalRetrievalChain
-
-loader = PyMuPDFLoader("/Users/piyushkanadje/Desktop/careerLLM/careerLLM/Backend/model/Kaushik_Daiv_Resume_Hadoop.pdf")
+import os
+path = os.getcwd()
+filename = "temp_file.pdf"
+full_path = os.path.join(path, filename)
+loader = PyMuPDFLoader(full_path)
+# loader = PyMuPDFLoader("/Users/piyushkanadje/Desktop/careerLLM/careerLLM/Backend/model/Kaushik_Daiv_Resume_Hadoop.pdf")
 data = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
 all_splits = text_splitter.split_documents(data)
@@ -77,7 +81,6 @@ async def create_item(prompt: str = Form(...)):
              pass
 
     
-<<<<<<< HEAD
     try:
         LLMresponse = llama.get(prompt)
     except:
@@ -102,57 +105,6 @@ async def match_job(request: Request):
     except:
         print("Error in matching")
     return match
-=======
-    # print(prompt)
-    # llama = LlamaAPI("LL-UD6myaJsam1zJIgRwUXSrljlSoX9LIQwcWXM8HOPasgnPiFMQf5MWHKDpll926pD")
-    # model = ChatLlamaAPI(client=llama)
-    # template_messages = [
-    # SystemMessage(content="You are a helpful assistant."),
-    # MessagesPlaceholder(variable_name="chat_history"),
-    # HumanMessagePromptTemplate.from_template("{text}"),
-    # ]
-    # prompt_template = ChatPromptTemplate.from_messages(template_messages)
-
-    # # # model_path = expanduser("llama-2-7b-chat.Q4_0.gguf")
-
-    # # # llm = LlamaCpp(
-    # # #     model_path=model_path,
-    # # #     streaming=False,
-    # # # )
-    # # model = Llama2Chat(llm=llm)
-    
-    # memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-    # chain = LLMChain(llm=model, prompt=prompt_template, memory=memory)
-    # LLMresponse = chain.run(
-    #     text= prompt
-    # )
-
-    # Replace 'Your_API_Token' with your actual API token
-    # print(LLMresponse)
-    # await asyncio.sleep(30)
-    # async with websockets.connect(
-    #     "ws://127.0.0.1:8000/chat/"
-    # ) as websocket:
-    #     # message_data = {"message": prompt}
-    #     # json_data = json.dumps(message_data)
-
-    #     await websocket.send("hello")
-        # counter = 0
-        
-        # stream_data = ""
-        # try:
-        #     while True:
-        #         counter += 1
-        #         response = await asyncio.wait_for(websocket.recv(), timeout=20)
-        #         response = json.loads(response)
-
-        #         if "error" in response:
-        #             stream_data = response["error"]
-        #             break
-        #         else:
-        #             prompt = response
-        #             break
->>>>>>> upstream/main
                
         # except asyncio.TimeoutError:
         #     pass
