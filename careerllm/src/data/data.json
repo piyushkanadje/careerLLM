@@ -1,0 +1,170 @@
+{
+  "Header": {
+    "title": "How CareerLLM Makes American Dream a Reality?",
+    "paragraph": "Through the application of our proven formula and proprietary services, GetAJob specializes in assisting international students in securing lucrative job opportunities with Fortune Companies in the USA. Explore the various technologies we facilitate placements in and contact us today."
+  },
+  "About": {
+    "paragraph": "At CareerLLM, we are dedicated to empowering international students by providing unparalleled support in navigating the competitive job market of the USA. With our time-tested formula, innovative services, and tailored techniques, we specialize in securing lucrative job opportunities with Fortune Companies.",
+    "Why": [
+      "Proven Success",
+      "Fortune Company Connections",
+      "Tailored Techniques",
+      "Cutting-edge Technologies"
+    ],
+    "Why2": [
+      "Comprehensive Job Matching",
+      "Innovative Resume ChatBOT",
+      "Dedicated Interview Preparation",
+      "Passionate Support"
+    ]
+  },
+  "Gallery": [
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/01-large.jpg",
+      "smallImage": "img/portfolio/01-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/02-large.jpg",
+      "smallImage": "img/portfolio/02-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/03-large.jpg",
+      "smallImage": "img/portfolio/03-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/04-large.jpg",
+      "smallImage": "img/portfolio/04-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/05-large.jpg",
+      "smallImage": "img/portfolio/05-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/06-large.jpg",
+      "smallImage": "img/portfolio/06-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/07-large.jpg",
+      "smallImage": "img/portfolio/07-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/08-large.jpg",
+      "smallImage": "img/portfolio/08-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/09-large.jpg",
+      "smallImage": "img/portfolio/09-small.jpg"
+    }
+  ],
+  "Services": [
+    {
+      "icon": "fa fa-regular fa-file",
+      "name": "Resume Parcer",
+      "text": "Elevate your job search with our website's Resume Parser feature for efficient extraction of key information from resumes."
+    },
+    {
+      "icon": "fa fa-brands fa-rocketchat",
+      "name": "Resume ChatBot",
+      "text": "Revolutionize your job application process with our smart chatbot, simplifying the creation of a standout resume."
+    },
+    {
+      "icon": "fa fa-solid fa-laptop",
+      "name": "Job Matching",
+      "text": "Equip yourself for success with our comprehensive resources and tools to ace your job interviews.."
+    }
+  ],
+  "Testimonials": [
+    {
+      "img": "img/testimonials/01.jpg",
+      "text": "\"The interview preparation resources gave me the confidence to face any interview. It's more than just tips; it's a comprehensive toolkit for success.\"",
+      "name": "Shrey Sinha"
+    },
+    {
+      "img": "img/testimonials/02.jpg",
+      "text": "\" Joining CareerLLM was a game-changer for me. The support I received not only landed me a fantastic job but also transformed my approach to career planning.\"",
+      "name": "Anish More"
+    },
+    {
+      "img": "img/testimonials/03.jpg",
+      "text": "\"The exclusive access to Fortune Companies made my job search surprisingly smooth. It's like having a golden ticket to the best opportunities out there.\"",
+      "name": "Akash Singh"
+    },
+    {
+      "img": "img/testimonials/04.jpg",
+      "text": "\"The personalized services create a sense of belonging. It's not just a service; it's a community dedicated to helping you succeed.\"",
+      "name": "Srushti Kanadje"
+    },
+    {
+      "img": "img/testimonials/05.jpg",
+      "text": "\"The emphasis on staying ahead with cutting-edge technologies aligns perfectly with the demands of the modern job market. It's refreshing to be part of an environment that values innovation.\"",
+      "name": "Swapnil Raut"
+    },
+    {
+      "img": "img/testimonials/06.jpg",
+      "text": "\"Crafting a resume has never been this easy. The Resume ChatBOT is a genius addition, guiding me step by step and ensuring my resume stands out.\"",
+      "name": "Mrunal Daiv"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/01.jpg",
+      "name": "Dhananjay Gavade",
+      "job": "Director"
+    },
+    {
+      "img": "img/team/04.jpg",
+      "name": "Kaushik Daiv",
+      "job": "CEO"
+    },
+    {
+      "img": "img/team/02.jpg",
+      "name": "Piyush Kanadje",
+      "job": "CTO"
+    },
+    {
+      "img": "img/team/03.jpg",
+      "name": "Ajay Wayase",
+      "job": "Tech Manager"
+    }
+
+  ],
+  "Contact": {
+    "address": "3131 Watkins Dr, Riverside, CA,92507 ",
+    "phone": "+1 123 456 1234",
+    "email": "careerLLM@cllm.co",
+    "facebook": "fb.com",
+    "twitter": "twitter.com",
+    "youtube": "youtube.com"
+  },
+  "Features": [
+    {
+      "icon": "fa fa-regular fa-file",
+      "title": "Resume Parcer",
+      "text": "Elevate your job search with our website's Resume Parser feature for efficient extraction of key information from resumes."
+    },
+    {
+      "icon": "fa fa-brands fa-rocketchat",
+      "title": "Resume ChatBot",
+      "text": "Revolutionize your job application process with our smart chatbot, simplifying the creation of a standout resume."
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Job Matching",
+      "text": "Connecting candidates with their ideal career opportunities through advanced matching algorithms."
+    },
+    {
+      "icon": " fa fa-solid fa-laptop",
+      "title": "Interview Preperation",
+      "text": "Equip yourself for success with our comprehensive resources and tools to ace your job interviews."
+    }
+  ]
+}
