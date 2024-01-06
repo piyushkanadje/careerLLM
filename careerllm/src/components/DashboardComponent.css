@@ -1,12 +1,32 @@
 .dropbox {
-    height: 300px;
-    margin-bottom: 20px;
+  height: 300px;
+  margin-bottom: 20px;
 }
 .dropbox-container {
-    margin-top: 10%;
+  margin-top: 10%;
 }
 button {
-    min-width: 150px;
-    height: 30px;
-    font-size: 12px !important;
+  min-width: 150px;
+  height: 30px;
+  font-size: 12px !important;
+}
+.spinner {
+  animation-name: spin;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.submit-btn:disabled {
+  background: #e7e8e9;
+  color: #9fa3a9;
+  cursor: not-allowed;
 }
