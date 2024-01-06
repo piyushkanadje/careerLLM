@@ -54,7 +54,7 @@ const LoginComponent = () => {
           </div>
 
           <div className='text-center mt-4 pt-2'>
-            <MDBBtn onClick = {handleLogin} className="mb-0 px-5 w-100  text-color" size='lg'>Login</MDBBtn>
+              <Link to='/dashboard'>  <MDBBtn  className="mb-0 px-5 w-100  text-color" size='lg'>Login</MDBBtn></Link>
             <p className="small fw-bold mt-2 pt-1 mb-2  text-color">Don't have an account? <Link to="/register" className="link-danger">
         Register
       </Link></p>

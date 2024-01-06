@@ -5,6 +5,7 @@ import "./DashboardComponent.css";
 import { ReactComponent as Loader } from '../assets/spinner.svg';
 
 const DashboardComponent = () => {
+
   const [files, setFiles] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
   const updateFiles = (incommingFiles) => {
@@ -82,6 +83,7 @@ const DashboardComponent = () => {
       <InformationComponent />
     </Fragment>
   );
+
 };
 
 export default DashboardComponent;

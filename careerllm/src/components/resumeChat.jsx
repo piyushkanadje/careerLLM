@@ -10,97 +10,102 @@ function ResumeChat() {
   const [errorText, setErrorText] = useState("");
   const scrollToLastItem = useRef(null);
 
-//   const createNewChat = () => {
-//     setMessage(null);
-//     setText("");
-//     setCurrentTitle(null);
-//   };
+  const createNewChat = () => {
+    console.log("Chat Created")
+    setMessage(null);
+    setText("");
+    setCurrentTitle(null);
+  };
 
-//   const backToHistoryPrompt = (uniqueTitle) => {
-//     setCurrentTitle(uniqueTitle);
-//     setMessage(null);
-//     setText("");
-//   };
+  const backToHistoryPrompt = (uniqueTitle) => {
+    setCurrentTitle(uniqueTitle);
+    setMessage(null);
+    setText("");
+  };
 
-//   const submitHandler = async (e) => {
-//     e.preventDefault();
-//     if (!text) return;
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    if (!text) return;
+    console.log(text);
+    setErrorText("");
+    setIsResponseLoading(true);
 
-//     setErrorText("");
-//     setIsResponseLoading(true);
+    const options = {
+      method: "POST",
+      body: JSON.stringify({
+        message: text,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-//     const options = {
-//       method: "POST",
-//       body: JSON.stringify({
-//         message: text,
-//       }),
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     };
+    try {
+      const response = await fetch(
+        // Add your get url for the response from the backend
+        "http://localhost:8000/",
+        options
+      );
+      const data = await response.json();
 
-//     try {
-//       const response = await fetch(
-//         "http://localhost:8000/completions",
-//         options
-//       );
-//       const data = await response.json();
+      if (data.error) {
+        setErrorText(data.error.message);
+        setText("");
+      } else {
+        setErrorText(false);
+      }
 
-//       if (data.error) {
-//         setErrorText(data.error.message);
-//         setText("");
-//       } else {
-//         setErrorText(false);
-//       }
+      if (!data.error) {
+        console.log("Hello No eroor found");
 
-//       if (!data.error) {
-//         setMessage(data.choices[0].message);
-//         setTimeout(() => {
-//           scrollToLastItem.current?.lastElementChild?.scrollIntoView({
-//             behavior: "smooth",
-//           });
-//         }, 1);
-//         setTimeout(() => {
-//           setText("");
-//         }, 2);
-//       }
-//     } catch (e) {
-//       console.error(e);
-//     } finally {
-//       setIsResponseLoading(false);
-//     }
-//   };
+        // Check your response and send data according here 
+        // setMessage(data.choices[0].message);
+        // setTimeout(() => {
+        //   scrollToLastItem.current?.lastElementChild?.scrollIntoView({
+        //     behavior: "smooth",
+        //   });
+        // }, 1);
+        // setTimeout(() => {
+        //   setText("");
+        // }, 2);
+      }
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsResponseLoading(false);
+    }
+  };
 
-//   useEffect(() => {
-//     if (!currentTitle && text && message) {
-//       setCurrentTitle(text);
-//     }
+  useEffect(() => {
+    if (!currentTitle && text && message) {
+      setCurrentTitle(text);
+    }
 
-//     if (currentTitle && text && message) {
-//       setPreviousChats((prevChats) => [
-//         ...prevChats,
-//         {
-//           title: currentTitle,
-//           role: "user",
-//           content: text,
-//         },
-//         {
-//           title: currentTitle,
-//           role: message.role,
-//           content:
-//             message.content.charAt(0).toUpperCase() + message.content.slice(1),
-//         },
-//       ]);
-//     }
-//   }, [message, currentTitle]);
+    if (currentTitle && text && message) {
+      setPreviousChats((prevChats) => [
+        ...prevChats,
+        {
+          title: currentTitle,
+          role: "user",
+          content: text,
+        },
+        {
+          title: currentTitle,
+          role: message.role,
+          content:
+            message.content.charAt(0).toUpperCase() + message.content.slice(1),
+        },
+      ]);
+    }
+  }, [message, currentTitle]);
 
-//   const currentChat = previousChats.filter(
-//     (prevChat) => prevChat.title === currentTitle
-//   );
+  const currentChat = previousChats.filter(
+    (prevChat) => prevChat.title === currentTitle
+  );
 
-//   const uniqueTitles = Array.from(
-//     new Set(previousChats.map((prevChat) => prevChat.title).reverse())
-//   );
+  const uniqueTitles = Array.from(
+    new Set(previousChats.map((prevChat) => prevChat.title).reverse())
+  );
   return (
 
     <>
@@ -111,12 +116,12 @@ function ResumeChat() {
             <div className="col-md-10">
             <div className="containerr">
 <section className="sidebarr">
-  <div className="sidebar-headerr" role="button">
+  <div className="sidebar-headerr" onClick={createNewChat} role="button">
     <BiPlus size={20} />
     <button>New Chat</button>
   </div>
   <div className="sidebar-history">
-    {/* {uniqueTitles.length > 0 && <p>Today</p>} */}
+    {uniqueTitles.length > 0 && <p>Today</p>}
     <ul>
       {/* {uniqueTitles?.map((uniqueTitle, idx) => (
         <li key={idx} onClick={() => backToHistoryPrompt(uniqueTitle)}>
@@ -173,7 +178,7 @@ function ResumeChat() {
   </div>
   <div className="main-bottom">
     {errorText && <p className="errorText">{errorText}</p>}
-    <form className="form-container">
+    <form className="form-container" onSubmit={submitHandler}>
       <input
         type="text"
         placeholder="Send a message."
