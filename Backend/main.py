@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, Form, Body
+from fastapi import FastAPI, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Union
@@ -6,7 +6,6 @@ from langchain.chains import LLMChain
 from llamaapi import LlamaAPI
 from langchain_experimental.llms import ChatLlamaAPI
 from langchain.memory import ConversationBufferMemory
-from langchain_experimental.chat_models import Llama2Chat
 from fastapi import FastAPI
 from langchain.prompts.chat import (
     ChatPromptTemplate,
@@ -14,16 +13,13 @@ from langchain.prompts.chat import (
     MessagesPlaceholder,
 )
 from langchain.schema import SystemMessage
-from os.path import expanduser
-from langchain_community.llms import LlamaCpp
-from pydantic import BaseModel
-import asyncio
-# nest_asyncio.apply()
+from model import resumeparser
+from model import jobmatcher
 import llama
-# from httpx import AsyncClient
-from fastapi import APIRouter, WebSocket, WebSocketDisconnect
-import websockets
 import json
+
+
+
 from contextlib import asynccontextmanager
 from langchain.chat_models import ChatOpenAI
 from langchain_community.document_loaders import PyMuPDFLoader
@@ -61,48 +57,7 @@ app.add_middleware(
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
 
-)
-
-# class Data(BaseModel):
-#     prompt: str
-# @router.websocket("/chat/")
-# async def websocket_endpoint(websocket: WebSocket):
-#     await websocket.accept()
-#     while True:
-#         data = await websocket.receive_text()
-#         prompt = data
-#         llama = LlamaAPI("LL-UD6myaJsam1zJIgRwUXSrljlSoX9LIQwcWXM8HOPasgnPiFMQf5MWHKDpll926pD")
-#        # openai.api_key  = "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"
-
-    
-#         model = ChatLlamaAPI(client=llama)#openai.chat.completions.create(messages="aho!",model = "gpt-3.5-turbo")#
-#         # await asyncio.sleep(30)
-#         print("a")
-
-#         template_messages = [
-#             SystemMessage(content="You are a helpful assistant."),
-#             MessagesPlaceholder(variable_name="chat_history"),
-#             HumanMessagePromptTemplate.from_template("{text}"),
-#             ]
-#         prompt_template = ChatPromptTemplate.from_messages(template_messages)
-
-#         # model_path = expanduser("llama-2-7b-chat.Q4_0.gguf")
-
-#         # llm = LlamaCpp(
-#         #     model_path=model_path,
-#         #     streaming=False,
-#         # )
-#         # model = Llama2Chat(llm=llm)
-
-#         memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-#         chain = LLMChain(llm=model, prompt=prompt_template, memory=memory)
-#         LLMresponse = cit hain.run(
-#             text= prompt
-#         )
-#         print(LLMresponse)
-#         data_dict = {'op':LLMresponse}
-#         await websocket.send_text(f"Message text was: {LLMresponse}")
-        
+)   
 
 
 @app.post("/submitprompt/")
@@ -171,10 +126,6 @@ async def create_item(prompt: str = Form(...)):
     return {"role": "ai","prompt": ans}
                
 
-        # return stream_data
-    # response = await llama.get(prompt)
-     
-# app.include_router(router)
 app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 

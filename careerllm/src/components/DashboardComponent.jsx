@@ -8,6 +8,7 @@ const DashboardComponent = () => {
 
   const [files, setFiles] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
+  const [data, setData] = React.useState();
   const updateFiles = (incommingFiles) => {
     setFiles(incommingFiles);
 
@@ -30,7 +31,9 @@ const DashboardComponent = () => {
 		});
 
 		if (response.ok) {
-			console.log("file uploaded sucessfully");
+			const jsonResponse = await response.json();
+			setData(jsonResponse['data'])
+            console.log("file uploaded successfully", jsonResponse);
 			setFiles([])
 			setLoading(false)
 		} else{
@@ -80,7 +83,7 @@ const DashboardComponent = () => {
 
       </div>
 
-      <InformationComponent />
+      <InformationComponent parsed_data = {data}/>
     </Fragment>
   );
 
