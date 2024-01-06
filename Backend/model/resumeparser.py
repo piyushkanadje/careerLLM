@@ -15,13 +15,15 @@ from llamaapi import LlamaAPI
 from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_experimental.llms import ChatLlamaAPI
 from langchain.prompts.chat import (
-    ChatPromptTemplate,
-    HumanMessagePromptTemplate,
-    MessagesPlaceholder,
+    ChatPromptTemplate
 )
+import json
+import os
 
 # Replace 'Your_API_Token' with your actual API token
-def resume_parser(path="./temp_file.pdf"):
+def resume_parse(filename = "temp_file.pdf"):
+    directory_path = os.getcwd() + "/model/"
+    path = os.path.join(directory_path, filename)
     llama = LlamaAPI("LL-UD6myaJsam1zJIgRwUXSrljlSoX9LIQwcWXM8HOPasgnPiFMQf5MWHKDpll926pD") 
     loader = PyMuPDFLoader(path)
     data = loader.load()
@@ -71,9 +73,19 @@ def resume_parser(path="./temp_file.pdf"):
         try:
             model = ChatLlamaAPI(client=llama)
             chat = model(messages)
-            print(chat.content)
+            # print(chat.content)
             output_dict = output_parser.parse(chat.content)
         except:
             pass
+    
+    filename2 = "parsed-resume.json"
+    full_file_path = os.path.join(directory_path, filename2)
+    try:
+        with open(full_file_path, 'w') as file:
+            json.dump(output_dict, file, indent=4)
+        print(f"Dictionary has been written to {full_file_path}")
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
     return output_dict
-print(resume_parser())
+# print(resume_parser())
