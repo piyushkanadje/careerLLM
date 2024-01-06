@@ -3,7 +3,7 @@ import InformationComponent from './InformationComponent';
 import { Dropzone, FileMosaic } from "@files-ui/react";
 
 const DashboardComponent = () => {
-	const [files, setFiles] = React.useState([]);
+   const [files, setFiles] = React.useState([]);
   const updateFiles = (incommingFiles) => {
     setFiles(incommingFiles);
   };
@@ -16,11 +16,11 @@ const DashboardComponent = () => {
       {files.map((file) => (
         <FileMosaic {...file} preview />
       ))}
-    </Dropzone>
-	</div>
-	</div>
-		<InformationComponent />
-		</Fragment>
+	</Dropzone>
+		</div>
+	</div>l
+	<InformationComponent />
+	</Fragment>
 	  );
 };
 

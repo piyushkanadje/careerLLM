@@ -1,21 +1,21 @@
 {
   "Header": {
-    "title": "We are a Landing Page",
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo nibh ante facilisis bibendum."
+    "title": "How CareerLLM Makes American Dream a Reality?",
+    "paragraph": "Through the application of our proven formula and proprietary services, GetAJob specializes in assisting international students in securing lucrative job opportunities with Fortune Companies in the USA. Explore the various technologies we facilitate placements in and contact us today."
   },
   "About": {
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "paragraph": "At CareerLLM, we are dedicated to empowering international students by providing unparalleled support in navigating the competitive job market of the USA. With our time-tested formula, innovative services, and tailored techniques, we specialize in securing lucrative job opportunities with Fortune Companies.",
     "Why": [
-      "Lorem ipsum dolor",
-      "Tempor incididunt",
-      "Lorem ipsum dolor",
-      "Incididunt ut labore"
+      "Proven Success",
+      "Fortune Company Connections",
+      "Tailored Techniques",
+      "Cutting-edge Technologies"
     ],
     "Why2": [
-      "Aliquip ex ea commodo",
-      "Lorem ipsum dolor",
-      "Exercitation ullamco",
-      "Lorem ipsum dolor"
+      "Comprehensive Job Matching",
+      "Innovative Resume ChatBOT",
+      "Dedicated Interview Preparation",
+      "Passionate Support"
     ]
   },
   "Gallery": [
@@ -67,118 +67,104 @@
   ],
   "Services": [
     {
-      "icon": "fa fa-wordpress",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "fa fa-regular fa-file",
+      "name": "Resume Parcer",
+      "text": "Elevate your job search with our website's Resume Parser feature for efficient extraction of key information from resumes."
     },
     {
-      "icon": "fa fa-cart-arrow-down",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "fa fa-brands fa-rocketchat",
+      "name": "Resume ChatBot",
+      "text": "Revolutionize your job application process with our smart chatbot, simplifying the creation of a standout resume."
     },
     {
-      "icon": "fa fa-cloud-download",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-    },
-    {
-      "icon": "fa fa-language",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-    },
-    {
-      "icon": "fa fa-plane",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-    },
-    {
-      "icon": "fa fa-pie-chart",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "fa fa-solid fa-laptop",
+      "name": "Job Matching",
+      "text": "Equip yourself for success with our comprehensive resources and tools to ace your job interviews.."
     }
   ],
   "Testimonials": [
     {
       "img": "img/testimonials/01.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
+      "text": "\"The interview preparation resources gave me the confidence to face any interview. It's more than just tips; it's a comprehensive toolkit for success.\"",
+      "name": "Shrey Sinha"
     },
     {
       "img": "img/testimonials/02.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
+      "text": "\" Joining CareerLLM was a game-changer for me. The support I received not only landed me a fantastic job but also transformed my approach to career planning.\"",
+      "name": "Anish More"
     },
     {
       "img": "img/testimonials/03.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
+      "text": "\"The exclusive access to Fortune Companies made my job search surprisingly smooth. It's like having a golden ticket to the best opportunities out there.\"",
+      "name": "Akash Singh"
     },
     {
       "img": "img/testimonials/04.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
+      "text": "\"The personalized services create a sense of belonging. It's not just a service; it's a community dedicated to helping you succeed.\"",
+      "name": "Srushti Kanadje"
     },
     {
       "img": "img/testimonials/05.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
+      "text": "\"The emphasis on staying ahead with cutting-edge technologies aligns perfectly with the demands of the modern job market. It's refreshing to be part of an environment that values innovation.\"",
+      "name": "Swapnil Raut"
     },
     {
       "img": "img/testimonials/06.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
+      "text": "\"Crafting a resume has never been this easy. The Resume ChatBOT is a genius addition, guiding me step by step and ensuring my resume stands out.\"",
+      "name": "Mrunal Daiv"
     }
   ],
   "Team": [
     {
       "img": "img/team/01.jpg",
-      "name": "John Doe",
+      "name": "Dhananjay Gavade",
       "job": "Director"
     },
     {
+      "img": "img/team/04.jpg",
+      "name": "Kaushik Daiv",
+      "job": "CEO"
+    },
+    {
       "img": "img/team/02.jpg",
-      "name": "Mike Doe",
-      "job": "Senior Designer"
+      "name": "Piyush Kanadje",
+      "job": "CTO"
     },
     {
       "img": "img/team/03.jpg",
-      "name": "Jane Doe",
-      "job": "Senior Designer"
-    },
-    {
-      "img": "img/team/04.jpg",
-      "name": "Karen Doe",
-      "job": "Project Manager"
+      "name": "Ajay Wayase",
+      "job": "Tech Manager"
     }
+
   ],
   "Contact": {
-    "address": "4321 California St, San Francisco, CA 12345 ",
+    "address": "3131 Watkins Dr, Riverside, CA,92507 ",
     "phone": "+1 123 456 1234",
-    "email": "info@company.com",
+    "email": "careerLLM@cllm.co",
     "facebook": "fb.com",
     "twitter": "twitter.com",
     "youtube": "youtube.com"
   },
   "Features": [
     {
-      "icon": "fa fa-comments-o",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "icon": "fa fa-regular fa-file",
+      "title": "Resume Parcer",
+      "text": "Elevate your job search with our website's Resume Parser feature for efficient extraction of key information from resumes."
     },
     {
-      "icon": "fa fa-bullhorn",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "icon": "fa fa-brands fa-rocketchat",
+      "title": "Resume ChatBot",
+      "text": "Revolutionize your job application process with our smart chatbot, simplifying the creation of a standout resume."
     },
     {
       "icon": "fa fa-group",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Job Matching",
+      "text": "Connecting candidates with their ideal career opportunities through advanced matching algorithms."
     },
     {
-      "icon": "fa fa-magic",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "icon": " fa fa-solid fa-laptop",
+      "title": "Interview Preperation",
+      "text": "Equip yourself for success with our comprehensive resources and tools to ace your job interviews."
     }
   ]
 }
