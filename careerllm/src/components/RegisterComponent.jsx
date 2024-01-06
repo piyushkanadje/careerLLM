@@ -90,7 +90,7 @@ const RegisterComponent = () => {
               <p className="small fw-bold mt-2 pt-1 mb-2">Already have an account? <Link to="/login" className="link-danger">
         Log In
       </Link></p>
-                {/* <p>or sign up with:</p> 
+                {/* {/* <p>or sign up with:</p>  */}
                 
                 <MDBBtn
                   tag="a"
