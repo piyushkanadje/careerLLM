@@ -2,24 +2,26 @@ import React, { Fragment } from "react";
 import InformationComponent from "./InformationComponent";
 import { Dropzone, FileMosaic } from "@files-ui/react";
 import "./DashboardComponent.css";
+import { ReactComponent as Loader } from '../assets/spinner.svg';
 
 const DashboardComponent = () => {
   const [files, setFiles] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
   const updateFiles = (incommingFiles) => {
     setFiles(incommingFiles);
 
   };
   const uploadFile = async (event) => {
+
 	event.preventDefault();
 	const formData = new FormData();
 	console.log("aaa", files[0].file)
 	formData.append('file_upload', files[0].file)
 
-	for (let [key, value] of formData.entries()) {
-		console.log(key, value);
-	}
 
 	try {
+		setLoading(true)
+
 		const endpoint = "http://127.0.0.1:8000/uploadfile/"
 		const response = await fetch(endpoint, {
 			method: "POST",
@@ -28,12 +30,18 @@ const DashboardComponent = () => {
 
 		if (response.ok) {
 			console.log("file uploaded sucessfully");
+			setFiles([])
+			setLoading(false)
 		} else{
 			console.error("failed to upload file");
+			setFiles([])
+			setLoading(false)
 		}
 
 	} catch(error){
 		console.log(error);
+		setFiles([])
+		setLoading(false)
 	}
 
 
@@ -65,7 +73,9 @@ const DashboardComponent = () => {
 		<div className="col-lg-2 col-md-2"></div>
 		<div className="col-lg-8 col-md-8"></div>
 
-		<button onClick={uploadFile} className="col-lg-1 col-md-1 btn btn-primary" type="button" data-mdb-ripple-init>Upload Resume</button>
+		<button onClick={uploadFile} className="col-lg-1 col-md-1 btn btn-primary" disabled={loading} type="button" data-mdb-ripple-init>
+		{!loading ? "Submit Resume" : <Loader className="spinner" />}
+		</button>
 
       </div>
 
