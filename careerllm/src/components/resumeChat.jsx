@@ -23,10 +23,10 @@ function ResumeChat() {
     setText("");
   };
 
-  const submitHandler = async (e) => {
+  const submitHandler = async (e)=> {
+    // console.log(e);
     e.preventDefault();
     if (!text) return;
-    console.log(text);
     setErrorText("");
     setIsResponseLoading(true);
 
@@ -36,18 +36,31 @@ function ResumeChat() {
         message: text,
       }),
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
       },
     };
-
+ 
     try {
-      const response = await fetch(
-        // Add your get url for the response from the backend
-        "http://localhost:8000/",
-        options
-      );
+      // const response = await fetch(
+      //   // Add your get url for the response from the backend
+      //   "http://127.0.0.1:8000/submitprompt/",
+      //   options
+      // );
+      const dataToSend = new FormData();
+      dataToSend.append('prompt', text);
+//       const response = await fetch('http://127.0.0.1:8000/submitprompt/', {
+//              method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/x-www-form-urlencoded',
+//     },
+//     body: new URLSearchParams({ prompt: 'your_prompt_here' }),
+// });
+        const response = await fetch('http://127.0.0.1:8000/submitprompt/', {
+            method: 'POST',
+            body: dataToSend,
+        });
       const data = await response.json();
-
+      // console.log(data.prompt);
       if (data.error) {
         setErrorText(data.error.message);
         setText("");
@@ -56,18 +69,18 @@ function ResumeChat() {
       }
 
       if (!data.error) {
-        console.log("Hello No eroor found");
+        console.log(data);
 
-        // Check your response and send data according here 
-        // setMessage(data.choices[0].message);
-        // setTimeout(() => {
-        //   scrollToLastItem.current?.lastElementChild?.scrollIntoView({
-        //     behavior: "smooth",
-        //   });
-        // }, 1);
-        // setTimeout(() => {
-        //   setText("");
-        // }, 2);
+        //Check your response and send data according here 
+        setMessage(data);
+        setTimeout(() => {
+          scrollToLastItem.current?.lastElementChild?.scrollIntoView({
+            behavior: "smooth",
+          });
+        }, 1);
+        setTimeout(() => {
+          setText("");
+        }, 2);
       }
     } catch (e) {
       console.error(e);
@@ -91,9 +104,8 @@ function ResumeChat() {
         },
         {
           title: currentTitle,
-          role: message.role,
-          content:
-            message.content.charAt(0).toUpperCase() + message.content.slice(1),
+          role: "ai",
+          content: message.prompt
         },
       ]);
     }
@@ -123,12 +135,12 @@ function ResumeChat() {
   <div className="sidebar-history">
     {uniqueTitles.length > 0 && <p>Today</p>}
     <ul>
-      {/* {uniqueTitles?.map((uniqueTitle, idx) => (
+      {uniqueTitles?.map((uniqueTitle, idx) => (
         <li key={idx} onClick={() => backToHistoryPrompt(uniqueTitle)}>
           <BiComment />
           {uniqueTitle.slice(0, 18)}
         </li>
-      ))} */}
+      ))}
     </ul>
   </div>
   <div className="sidebar-info">
@@ -144,37 +156,39 @@ function ResumeChat() {
 </section>
 
 <section className="mainn">
-  {/* {!currentTitle && (
+  {!currentTitle && (
     <div className="empty-chat-container">
       <img
-        src="../public/ChatGPT_logo.svg"
-        width={45}
-        height={45}
-        alt="chat gpt logo"
+        src="../../img/log.png"
+        width={100}
+        height={100}
+        alt="CareerLLM logo"
       />
-      <h1>Chat GPT Clone</h1>
+      <h1>CareerLLM</h1>
       <h3>How can I help you today?</h3>
     </div>
-  )} */}
+  )}
   <div className="main-header">
-    <ul>
-      {/* {currentChat?.map((chatMsg, idx) => (
-        <li key={idx} ref={scrollToLastItem}>
-          <img
-            src={
-              chatMsg.role === "user"
-                ? "../public/face_logo.svg"
-                : "../public/ChatGPT_logo.svg"
-            }
-            alt={chatMsg.role === "user" ? "Face icon" : "ChatGPT icon"}
-            style={{
-              backgroundColor: chatMsg.role === "user" && "#ECECF1",
-            }}
-          />
-          <p>{chatMsg.content}</p>
-        </li>
-      ))} */}
-    </ul>
+  <ul>
+  {console.log(currentChat)}
+  {currentChat?.map((chatMsg, idx) => (
+    <li key={idx} ref={scrollToLastItem}>
+
+      <img
+        src={
+          chatMsg.role === "user"
+            ? "../../img/face_logo.svg"
+            : "../../img/log.png"
+        }
+        alt={chatMsg.role === "user" ? "Face icon" : "ChatGPT icon"}
+        style={{
+          backgroundColor: chatMsg.role === "ai" && "white",
+        }}
+      />
+      <p>{chatMsg.content}</p>
+    </li>
+  ))}
+</ul>
   </div>
   <div className="main-bottom">
     {errorText && <p className="errorText">{errorText}</p>}
@@ -183,10 +197,11 @@ function ResumeChat() {
         type="text"
         placeholder="Send a message."
         spellCheck="false"
+        name ="prompt"
         value={
           isResponseLoading
-            ? "Loading..."
-            : text.charAt(0).toUpperCase() + text.slice(1)
+      ? "Loading..."
+      : text
         }
         onChange={(e) => setText(e.target.value)}
         readOnly={isResponseLoading}
@@ -220,6 +235,5 @@ function ResumeChat() {
 }
 
 export default ResumeChat;
-
 
 
