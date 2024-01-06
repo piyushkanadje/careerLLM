@@ -126,13 +126,13 @@ function ResumeChat() {
             <div className="col-md-1">
             </div>
             <div className="col-md-10">
-            <div className="containerr">
-<section className="sidebarr">
-  <div className="sidebar-headerr" onClick={createNewChat} role="button">
+            <div className="containerrr">
+<section className="sidebarrr">
+  <div className="sidebar-headerrr" onClick={createNewChat} role="button">
     <BiPlus size={20} />
     <button>New Chat</button>
   </div>
-  <div className="sidebar-history">
+  <div className="sidebar-historyy">
     {uniqueTitles.length > 0 && <p>Today</p>}
     <ul>
       {uniqueTitles?.map((uniqueTitle, idx) => (
@@ -192,7 +192,7 @@ function ResumeChat() {
   </div>
   <div className="main-bottom">
     {errorText && <p className="errorText">{errorText}</p>}
-    <form className="form-container" onSubmit={submitHandler}>
+    <form className="form-containerr" onSubmit={submitHandler}>
       <input
         type="text"
         placeholder="Send a message."
