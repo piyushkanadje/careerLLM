@@ -11,6 +11,7 @@ from langchain.prompts.chat import (
     ChatPromptTemplate,
     HumanMessagePromptTemplate,
     MessagesPlaceholder,
+    SystemMessagePromptTemplate
 )
 from langchain.schema import SystemMessage
 from model import resumeparser
@@ -30,7 +31,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain.chains import ConversationalRetrievalChain
 
-loader = PyMuPDFLoader("/Users/piyushkanadje/Desktop/careerLLM/careerLLM/Backend/piyush.pdf")
+loader = PyMuPDFLoader("/Users/piyushkanadje/Desktop/careerLLM/careerLLM/Backend/model/Kaushik_Daiv_Resume_Hadoop.pdf")
 data = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
 all_splits = text_splitter.split_documents(data)
@@ -128,7 +129,40 @@ async def create_item(prompt: str = Form(...)):
         # except asyncio.TimeoutError:
         #     pass
     return {"role": "ai","prompt": ans}
-               
+
+@app.post("/interviewprompt/")
+async def interview_chat(prompt: str = Form(...)):
+    llama = LlamaAPI("LL-UD6myaJsam1zJIgRwUXSrljlSoX9LIQwcWXM8HOPasgnPiFMQf5MWHKDpll926pD")
+    llm = ChatLlamaAPI(client=llama)
+    with open("/Users/piyushkanadje/Desktop/careerLLM/careerLLM/Backend/model/parsed-resume.json") as f:
+        output_dict = json.load(f)
+    print(output_dict)
+
+
+    # Prompt
+    promptTemp = ChatPromptTemplate(
+        messages=[
+            SystemMessagePromptTemplate.from_template(
+                f"You are a chatbot helping user with interview preparation for following role{output_dict['Role']}."
+            ),
+            # The `variable_name` here is what must align with memory
+            MessagesPlaceholder(variable_name="chat_history"),
+            HumanMessagePromptTemplate.from_template("{question}"),
+        ]
+    )
+
+    # Notice that we `return_messages=True` to fit into the MessagesPlaceholder
+    # Notice that `"chat_history"` aligns with the MessagesPlaceholder name
+    memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+    conversation = LLMChain(llm=llm, prompt=promptTemp, verbose=True, memory=memory)
+
+    # Notice that we just pass in the `question` variables - `chat_history` gets populated by memory
+    print(prompt)
+    chat = conversation({"question": prompt})["text"]
+    print(" AI: "+ chat)
+    
+    return {"role": "ai","prompt": chat}
+                  
 
 app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
