@@ -3,7 +3,7 @@ html {
   font-family: "Open Sans", sans-serif;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-  color: #777;
+  color: white;
   font-weight: 400;
   width: 100% !important;
   height: 100% !important;
@@ -18,16 +18,16 @@ h2 {
   margin: 0 0 20px;
   font-weight: 800;
   font-size: 36px;
-  color: #333;
+  color: white;
 }
 h3 {
   font-size: 20px;
   font-weight: 600;
-  color: #333;
+  color: white;
 }
 h4 {
   font-size: 18px;
-  color: #333;
+  color: white;
   font-weight: 600;
 }
 h5 {

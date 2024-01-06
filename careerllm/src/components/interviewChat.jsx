@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { BiPlus, BiComment, BiUser, BiFace, BiSend } from "react-icons/bi";
-import "./resumeChat.css";
+import "./interviewChat.css";
 function InterviewChat() {
   const [text, setText] = useState("");
   const [message, setMessage] = useState(null);
