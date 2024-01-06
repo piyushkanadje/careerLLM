@@ -80,7 +80,7 @@ app.add_middleware(
 
 #         memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 #         chain = LLMChain(llm=model, prompt=prompt_template, memory=memory)
-#         LLMresponse = chain.run(
+#         LLMresponse = cit hain.run(
 #             text= prompt
 #         )
 #         print(LLMresponse)
