@@ -2,6 +2,7 @@
 import React from "react";
 import RegisterComponent from './components/RegisterComponent';
 import LoginComponent from "./components/LoginComponent";
+import DashboardComponent from "./components/DashboardComponent";
 import RootLayout from "./components/RootLayout";
 import Home from "./components/Home";
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([{
       element:<RegisterComponent />
 
     },
+    {
+      path:"/dashboard",
+      element:<DashboardComponent />
+    }
   ]
 }])
 const App = () => {
