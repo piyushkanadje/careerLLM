@@ -1,40 +1,25 @@
-About the job
-        Bring your heart to CVS Health. Every one of us at CVS Health shares a single, clear purpose: Bringing our heart to every moment of your health. This purpose guides our commitment to deliver enhanced human-centric health care for a rapidly changing world. Anchored in our brand — with heart at its center — our purpose sends a personal message that how we deliver our services is just as important as what we deliver.
+Role Highlights
 
-        Our Heart At Work Behaviors™ support this purpose. We want everyone who works at CVS Health to feel empowered by the role they play in transforming our culture and accelerating our ability to innovate and deliver solutions to make health care more personal, convenient and affordable.
+ Part-time work during the school year (16 hours/week)
+ Full-time work during the summer (40 hours/week)
+ 1:1 mentoring with an experienced Software Engineer
+ Effective performance management and integrated opportunities for growth
 
-        This role is a highly visible opportunity on the Rebates Forecasting Decision Science team, responsible for modernizing and innovating to advance rebate performance and profitability for both clients and the PBM organization.
+We are open to hiring candidates to work out of one of the following locations:
 
-        The Product team designs and builds applications that create insights transforming the healthcare industry. The products we are building have a strong forecasting, what-if scenario, and financial analysis components to them. You will work with business leaders, product leaders, and engineering teams to develop product strategy and roadmaps.You will brainstorm with product owners, engineers, and data scientists to problem solve and develop products to reimagine the rebates forecasting work.
+San Luis Obispo, CA, USA
 
-        We are part of the Analytics& Behavior Change organization that serves as a critical partner to various teams across the enterprise helping them to achieve core business goals.
+Basic Qualifications
 
-        Position Summary
+ Currently enrolled in an accredited college or university Bachelor's or Master's degree program.
+ Majoring in Computer Science, Software Engineering, or related STEM field.
+ Graduating between June 2025 and June 2027.
+ Ability to work year-round until graduation (part-time during the school year and full-time during the summer).
+ Living within commutable distance to San Luis Obispo, CA and able to work in-person year-round.
+ Programming experience with at least one modern language such as Java, Python, or C++ including object-oriented design.
 
-        As an engineer in the Analytics team building a new Integrate Rebate Forecasting application, you will be part of the team responsible for building advanced modeling applications to forecast rebate profitability.
-        Your role will include developing our new model using Python, Pandas, Polars, and other technologies and integrating our system with the existing underwriting application.
-        Additionally, you will have the opportunity to work with various cloud technologies to build a reliable application that scales our end user's needs.
-        Build and maintain rebate model written in Python, Pandas, which interfaces with a relational database.
-        Integrate application data with upstream and downstream systems and applications including RDBMS, Hive, Databricks, Azure Data Lake, GCP buckets, etc.
-        Build and maintain microservices written in Python to enable communications with external services to send and retrieve relevant rebates data.
-        Integrate rebate forecasting results into Databricks jobs.
+Preferred Qualifications
 
-
-        Location: Hybrid work schedule based in Scottsdale, AZ office - 3 days a week every other week in the office.
-
-        Required Qualifications
-
-        2+ years of experience working in software/data engineering role
-        2+ years hands-on experience coding in Python or another backend programing language
-        2+ years of experience of software engineering best practices (OOP, Git, CI/CD, data structure& algorithms) in enterprise application development.
-
-
-        Preferred Qualifications
-
-        2+ years designing systems in the cloud using Cloud Functions, Data Pipelines, Tools for Big Data, RDBMS, Cache, Logging and Monitoring.
-        Experience building and maintaining microservices.
-
-
-        Education
-
-        Bachelor's degree required
+ Previous technical internship(s), if applicable.
+ Ability to effectively articulate technical challenges and solutions.
+ Adept at handling ambiguous or undefined problems as well as ability to think abstractly.

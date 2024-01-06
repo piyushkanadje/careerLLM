@@ -80,7 +80,7 @@ const JobComparatorComponent = () => {
 
     return(
         <Fragment>
-        <form className="col-lg-6 col-md-6">
+        <form className="col-lg-6 col-md-6 forms">
         <textarea placeholder='Enter comment...' value={text} onChange = {updateText} name="jd">
             Paste the Job Description Here...  
         </textarea>
