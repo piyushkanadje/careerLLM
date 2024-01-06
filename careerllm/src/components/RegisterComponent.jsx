@@ -35,7 +35,7 @@ const RegisterComponent = () => {
           </p>
         </MDBCol>
 
-        <MDBCol md="6">
+        <MDBCol md="4">
           <MDBCard className="my-5">
             <MDBCardBody className="p-5">
               <MDBRow>
@@ -85,7 +85,7 @@ const RegisterComponent = () => {
               </MDBBtn>
 
               <div className="text-center">
-              <p className="small fw-bold mt-2 pt-1 mb-2">Already have an account? <Link to="/" className="link-danger">
+              <p className="small fw-bold mt-2 pt-1 mb-2">Already have an account? <Link to="/login" className="link-danger">
         Log In
       </Link></p>
                 <p>or sign up with:</p>
