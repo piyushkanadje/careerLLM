@@ -29,8 +29,8 @@ def analyze_job(job_desc = '', output_dict = None):
             with open(full_file_path, 'r') as file:
                 output_dict = json.load(file)
 
-            print("File successfully read. Contents:")
-            print(output_dict)
+            # print("File successfully read. Contents:")
+            # print(output_dict)
 
         except FileNotFoundError:
             print(f"Error: The file '{filename}' was not found.")
@@ -115,8 +115,8 @@ def analyze_job(job_desc = '', output_dict = None):
     else:
         job_description = job_desc
     
-    cleaned_job_description = preprocess_text(job_description)
-    formatted_job_description = cleaned_job_description
+    #cleaned_job_description = preprocess_text(job_description)
+    formatted_job_description = job_description
     formatted_resume = {
         'role': output_dict['Role'],
         'education': output_dict['Education'],

@@ -5,6 +5,7 @@ import LoginComponent from "./components/LoginComponent";
 import DashboardComponent from "./components/DashboardComponent";
 import RootLayout from "./components/RootLayout";
 import Home from "./components/Home";
+import JobComparatorComponent from "./components/JobComparatorComponent";
 
 import "./App.css";
 import { Fragment } from 'react';
@@ -36,6 +37,10 @@ const router = createBrowserRouter([{
     {
       path:"/dashboard",
       element:<DashboardComponent />
+    },
+    {
+      path:"comparison",
+      element:<JobComparatorComponent />
     }
   ]
 }])

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Form
+from fastapi import FastAPI, Form, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Union
@@ -17,6 +17,7 @@ from model import resumeparser
 from model import jobmatcher
 import llama
 import json
+
 
 
 
@@ -55,15 +56,18 @@ async def submit_prompt(prompt: str = Form(...)):
     
     return {"prompt": LLMresponse}
 @app.post("/parseresume/")
-async def parse_resume(filename: str = Form(...)):
+async def parse_resume():
     try:
-        parsed_json = resumeparser.resume_parse(filename)
+        parsed_json = resumeparser.resume_parse()
     except:
         print("Error in parsing")
     return parsed_json
 
 @app.post("/jobmatcher/")
-async def match_job(jd: str = Form(...)):
+async def match_job(request: Request):
+    print("aaaaaaa")
+    body_str = await request.body()
+    jd = body_str.decode()
     try:
         match = jobmatcher.analyze_job(jd)
     except:

@@ -22,7 +22,8 @@ import os
 
 # Replace 'Your_API_Token' with your actual API token
 def resume_parse(filename = "temp_file.pdf"):
-    directory_path = os.getcwd() + "/model/"
+    directory_path = os.getcwd()
+    #print(directory_path)
     path = os.path.join(directory_path, filename)
     llama = LlamaAPI("LL-UD6myaJsam1zJIgRwUXSrljlSoX9LIQwcWXM8HOPasgnPiFMQf5MWHKDpll926pD") 
     loader = PyMuPDFLoader(path)
@@ -64,7 +65,7 @@ def resume_parse(filename = "temp_file.pdf"):
 
     output_parser = StructuredOutputParser.from_response_schemas(response_schemas)
     format_instructions = output_parser.get_format_instructions()
-    print(format_instructions)
+    #print(format_instructions)
     messages = prompt.format_messages(text=data[0].page_content, 
                                     format_instructions=format_instructions)
     output_dict = None
@@ -83,7 +84,7 @@ def resume_parse(filename = "temp_file.pdf"):
     try:
         with open(full_file_path, 'w') as file:
             json.dump(output_dict, file, indent=4)
-        print(f"Dictionary has been written to {full_file_path}")
+        #print(f"Dictionary has been written to {full_file_path}")
 
     except Exception as e:
         print(f"An error occurred: {e}")
