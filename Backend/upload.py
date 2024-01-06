@@ -33,6 +33,6 @@ async def create_upload_file(file_upload: UploadFile):
         f.write(content)
     print("File delivered")
     print("file delivered")
-    obj = resumeparser.resume_parser()
+    obj = resumeparser.resume_parse()
     print(obj)
     return {"data": obj}

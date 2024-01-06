@@ -96,6 +96,7 @@ const InformationComponent = (props = {}) => {
 
 
     useEffect(() => {
+        console.log("info", props.parsed_data)
         if (props.parsed_data) {
             if (props.parsed_data["Education"] !== undefined) {
                 setEducation(props.parsed_data["Education"].split(';'));

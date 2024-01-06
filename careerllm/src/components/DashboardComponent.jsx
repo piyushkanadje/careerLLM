@@ -3,12 +3,18 @@ import InformationComponent from "./InformationComponent";
 import { Dropzone, FileMosaic } from "@files-ui/react";
 import "./DashboardComponent.css";
 import { ReactComponent as Loader } from '../assets/spinner.svg';
+import { useNavigate } from 'react-router-dom';
+
 
 const DashboardComponent = () => {
 
   const [files, setFiles] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
   const [data, setData] = React.useState();
+  const navigate = useNavigate();
+
+
+
   const updateFiles = (incommingFiles) => {
     setFiles(incommingFiles);
 
@@ -24,7 +30,7 @@ const DashboardComponent = () => {
 	try {
 		setLoading(true)
 
-		const endpoint = "http://127.0.0.1:8000/uploadfile/"
+		const endpoint = "http://127.0.0.1:8000/parseresume/"
 		const response = await fetch(endpoint, {
 			method: "POST",
 			body: formData,
@@ -32,7 +38,7 @@ const DashboardComponent = () => {
 
 		if (response.ok) {
 			const jsonResponse = await response.json();
-			setData(jsonResponse['data'])
+			setData(jsonResponse)
             console.log("file uploaded successfully", jsonResponse);
 			setFiles([])
 			setLoading(false)
@@ -50,6 +56,11 @@ const DashboardComponent = () => {
 
 
   }
+
+  const compareJobDesc = () => {
+	navigate('/comparison');
+  }
+
   return (
     <Fragment>
       <div class="row gx-xl-5 mb-10">
@@ -75,9 +86,12 @@ const DashboardComponent = () => {
           </Dropzone>
         </div>
 		<div className="col-lg-2 col-md-2"></div>
-		<div className="col-lg-8 col-md-8"></div>
+		<div className="col-lg-5 col-md-5"></div>
+		<button onClick={compareJobDesc} to = "/comparison" className="col-lg-1 col-md-1 btn btn-primary dash-button" disabled={loading} type="button" data-mdb-ripple-init>
+		Compare Job Desc</button>
+		<div className="col-lg-1 col-md-1"></div>
 
-		<button onClick={uploadFile} className="col-lg-1 col-md-1 btn btn-primary" disabled={loading} type="button" data-mdb-ripple-init>
+		<button onClick={uploadFile} className="col-lg-1 col-md-1 btn btn-primary dash-button" disabled={loading} type="button" data-mdb-ripple-init>
 		{!loading ? "Submit Resume" : <Loader className="spinner" />}
 		</button>
 
