@@ -79,14 +79,8 @@ async def create_item(prompt: str = Form(...)):
                 ans = qa(prompt)['answer']
         except:
              pass
+    return {"prompt": ans}
 
-    
-    try:
-        LLMresponse = llama.get(prompt)
-    except:
-        print("Error in model")
-    
-    return {"prompt": LLMresponse}
 @app.post("/parseresume/")
 async def parse_resume():
     try:
