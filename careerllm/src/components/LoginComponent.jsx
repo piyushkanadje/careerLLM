@@ -21,7 +21,7 @@ const LoginComponent = () => {
           <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image" />
         </MDBCol>
 
-        <MDBCol col='4' md='6'>
+        <MDBCol col='4' md='4' className='login-form'>
 
           <div className="d-flex flex-row align-items-center justify-content-center">
 
