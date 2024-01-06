@@ -25,7 +25,7 @@ const LoginComponent = () => {
 
           <div className="d-flex flex-row align-items-center justify-content-center">
 
-            <p className="lead fw-normal mb-0 me-3">Sign in with</p>
+            <p className="lead fw-normal mb-0 me-3 text-color">Sign in with</p>
 
             <MDBBtn floating size='md' tag='a' className='me-2'>
               <MDBIcon fab icon='facebook-f' />
@@ -49,13 +49,13 @@ const LoginComponent = () => {
           <MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg"/>
 
           <div className="d-flex justify-content-between mb-4">
-            <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
-            <a href="!#">Forgot password?</a>
+            <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me'   style={{ color: 'black'}}/>
+            <a href="!#" className=' text-color'>Forgot password?</a>
           </div>
 
           <div className='text-center mt-4 pt-2'>
-            <MDBBtn onClick = {handleLogin} className="mb-0 px-5 w-100" size='lg'>Login</MDBBtn>
-            <p className="small fw-bold mt-2 pt-1 mb-2">Don't have an account? <Link to="/register" className="link-danger">
+            <MDBBtn onClick = {handleLogin} className="mb-0 px-5 w-100  text-color" size='lg'>Login</MDBBtn>
+            <p className="small fw-bold mt-2 pt-1 mb-2  text-color">Don't have an account? <Link to="/register" className="link-danger">
         Register
       </Link></p>
           </div>
@@ -66,8 +66,8 @@ const LoginComponent = () => {
 
       <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary footer">
 
-        <div className="text-white mb-3 mb-md-0">
-          Copyright © 2020. All rights reserved.
+        <div className="text-white mb-3 mb-md-0  text-color">
+          Copyright © 2024. All rights reserved.
         </div>
 
         <div>

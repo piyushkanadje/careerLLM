@@ -4,9 +4,12 @@ import RegisterComponent from './components/RegisterComponent';
 import LoginComponent from "./components/LoginComponent";
 import RootLayout from "./components/RootLayout";
 import Home from "./components/Home";
+
 import "./App.css";
 import { Fragment } from 'react';
 import  {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import ResumeChat from "./components/resumeChat";
+
 const router = createBrowserRouter([{
   path: '/',  
   element: <RootLayout/>,
@@ -14,6 +17,11 @@ const router = createBrowserRouter([{
     {
       path: "/",
       element: <Home/>,
+    },
+    {
+      path:"/resumeChat",
+      element: <ResumeChat />
+
     },
     {
       path:"/login",

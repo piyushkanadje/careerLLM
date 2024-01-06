@@ -208,7 +208,7 @@ a:focus,
   display: table;
   width: 100%;
   padding: 0;
-  background: url(../img/intro-bg.jpg) center center no-repeat;
+  background: url(../img/pk.png) center center no-repeat;
   background-color: #e5e5e5;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -220,7 +220,7 @@ a:focus,
 }
 .intro h1 {
   font-family: "Raleway", sans-serif;
-  color: #fff;
+  color: #ffd700;
   font-size: 82px;
   font-weight: 700;
   text-transform: uppercase;
@@ -229,10 +229,10 @@ a:focus,
 }
 .intro h1 span {
   font-weight: 800;
-  color: #5ca9fb;
+  color: #ffd700;
 }
 .intro p {
-  color: #fff;
+  color: #ffd700;
   font-size: 22px;
   font-weight: 300;
   line-height: 30px;
@@ -246,7 +246,7 @@ header .intro-text {
 }
 /* Features Section */
 #features {
-  background: #f6f6f6;
+  background: #f2f2f2;
 }
 #features i.fa {
   font-size: 38px;
@@ -259,6 +259,10 @@ header .intro-text {
   border-radius: 50%;
   background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+}
+
+.feature-text {
+  color : black;
 }
 /* About Section */
 #about {

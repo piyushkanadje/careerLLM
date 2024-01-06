@@ -43,12 +43,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './MainNavigation.module.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export const Navigation = () => {
   return (
-      <nav className={ classes.navBox + " navbar navbar-expand-lg"} >
+      <>
+      <div className={classes.divs}>
+        <nav className={ classes.navBox + " navbar navbar-expand-lg"} >
         <NavLink className={classes.navLogo + " navbar-brand"} to="/">
-          <p className={classes.logoText}>PK</p>
+          <p className={classes.logoText}>CareerLLM</p>
         </NavLink>
         <button
           className="navbar-toggler"
@@ -63,45 +67,31 @@ export const Navigation = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
+          <ul className={classes.mlauto + " navbar-nav"}>
+            <li className="nav-item ">
               <NavLink className={ classes.navLink + " nav-link"} to="/" exact>
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className={ classes.navLink + " nav-link"}to="/milestones">
-                MileStones
+              <NavLink className={ classes.navLink + " nav-link"}to="/resumeChat">
+                ResumeChat
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className={ classes.navLink + " nav-link"} to="/travel">
-                Travel
+            <li className=  "nav-item">
+              <NavLink className={ classes.navLink + " nav-link"} to="/login">
+                login
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className={ classes.navLink + " nav-link"}to="/for-recruiters">
-                For Recruiters
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className={ classes.navLink + " nav-link"} to="/projects">
-                Projects
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className={ classes.navLink + " nav-link"} to="/blog">
-                Blogs
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className={ classes.navLink + " nav-link"}to="/contactme">
-                ContactMe!
-              </NavLink>
+            <li className=  "nav-item">
+            <NavLink className={classes.navLink + " btn btn-primary btn-sm"} to="/register">SignUp/LogIn</NavLink>
             </li>
           </ul>
         </div>
+        
       </nav>
+        </div>
+      </>
   );
 };
 

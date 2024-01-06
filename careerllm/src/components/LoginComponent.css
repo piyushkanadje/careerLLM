@@ -4,6 +4,7 @@
   flex: 1;
   height: 1px;
   background: #eee;
+  color: black;
 }
 .h-custom {
   height: calc(100% - 73px);
@@ -18,4 +19,8 @@
   bottom: 0;
   width: 100%;
   left: 0;
+}
+
+.text-color {
+  color : black;
 }

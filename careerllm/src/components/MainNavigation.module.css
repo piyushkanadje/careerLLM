@@ -6,16 +6,23 @@
   .navBox {
      /* background-color: #F9F5F6; */
     background-color: white;
-    height: 70px;   
+    height: 70px; 
+
   }
+  
 
   .navLink {
     /* color: #393646; */
     color: black;
     font-size: 20px !important;
     font-weight: 300;
-    margin: 10px 11px;
+    margin : 20px 20px;
+    float: right;
     font-family: 'Montserrat', sans-serif;
+  }
+  
+  .mlauto {
+    margin-left: auto !important;
   }
 
   .navLink:hover{
