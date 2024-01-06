@@ -79,8 +79,8 @@ export const Navigation = () => {
               </NavLink>
             </li>
             <li className=  "nav-item">
-              <NavLink className={ classes.navLink + " nav-link"} to="/login">
-                login
+              <NavLink className={ classes.navLink + " nav-link"} to="/dashboard">
+              Dashboard
               </NavLink>
             </li>
             <li className=  "nav-item">
