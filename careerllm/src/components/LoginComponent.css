@@ -24,3 +24,8 @@
 .text-color {
   color : black;
 }
+
+.login-form {
+  margin-left: 8%;
+  padding-top: 8%;
+}

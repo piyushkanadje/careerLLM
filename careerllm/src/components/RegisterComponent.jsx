@@ -88,12 +88,12 @@ const RegisterComponent = () => {
               <p className="small fw-bold mt-2 pt-1 mb-2">Already have an account? <Link to="/login" className="link-danger">
         Log In
       </Link></p>
-                <p>or sign up with:</p>
+                {/* <p>or sign up with:</p>
 
                 <MDBBtn
                   tag="a"
                   color="none"
-                  className="mx-3"
+                  className="mx-3 alternate-signup"
                   style={{ color: "#1266f1" }}
                 >
                   <MDBIcon fab icon="facebook-f" size="sm" />
@@ -102,7 +102,7 @@ const RegisterComponent = () => {
                 <MDBBtn
                   tag="a"
                   color="none"
-                  className="mx-3"
+                  className="mx-3 alternate-signup"
                   style={{ color: "#1266f1" }}
                 >
                   <MDBIcon fab icon="twitter" size="sm" />
@@ -111,7 +111,7 @@ const RegisterComponent = () => {
                 <MDBBtn
                   tag="a"
                   color="none"
-                  className="mx-3"
+                  className="mx-3 alternate-signup"
                   style={{ color: "#1266f1" }}
                 >
                   <MDBIcon fab icon="google" size="sm" />
@@ -120,11 +120,11 @@ const RegisterComponent = () => {
                 <MDBBtn
                   tag="a"
                   color="none"
-                  className="mx-3"
+                  className="mx-3 alternate-signup"
                   style={{ color: "#1266f1" }}
                 >
                   <MDBIcon fab icon="github" size="sm" />
-                </MDBBtn>
+                </MDBBtn> */}
               </div>
             </MDBCardBody>
           </MDBCard>
