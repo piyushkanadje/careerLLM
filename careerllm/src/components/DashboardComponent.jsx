@@ -87,7 +87,7 @@ const DashboardComponent = () => {
         </div>
 		<div className="col-lg-2 col-md-2"></div>
 		<div className="col-lg-5 col-md-5"></div>
-		<button onClick={compareJobDesc} to = "/comparison" className="col-lg-1 col-md-1 btn btn-primary dash-button" disabled={loading} type="button" data-mdb-ripple-init>
+		<button onClick={compareJobDesc} to = "/comparison" className="col-lg-1 col-md-1 btn btn-primary dash-button" disabled={loading || data === undefined} type="button" data-mdb-ripple-init>
 		Compare Job Desc</button>
 		<div className="col-lg-1 col-md-1"></div>
 
