@@ -1,0 +1,4 @@
+langchain_experimental
+llamaapi
+pymupdf
+langchain
