@@ -170,4 +170,4 @@ def analyze_job(job_desc = '', output_dict = None):
         except:
             pass
     return output_jm_dict
-# print(analyze_job())
+print(analyze_job())
