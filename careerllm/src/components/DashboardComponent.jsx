@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react'
-import InformationComponent from './InformationComponent';
+import React, { Fragment } from "react";
+import InformationComponent from "./InformationComponent";
 import { Dropzone, FileMosaic } from "@files-ui/react";
+import "./DashboardComponent.css";
 
 const DashboardComponent = () => {
    const [files, setFiles] = React.useState([]);
   const updateFiles = (incommingFiles) => {
     setFiles(incommingFiles);
+
   };
 	return (
 		<Fragment>
@@ -16,12 +18,12 @@ const DashboardComponent = () => {
       {files.map((file) => (
         <FileMosaic {...file} preview />
       ))}
-	</Dropzone>
-		</div>
-	</div>l
-	<InformationComponent />
-	</Fragment>
+    </Dropzone>
+	</div>
+	</div>
+		<InformationComponent />
+		</Fragment>
 	  );
 };
 
-export default DashboardComponent
+export default DashboardComponent;

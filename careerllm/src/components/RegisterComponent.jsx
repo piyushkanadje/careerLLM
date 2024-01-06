@@ -95,7 +95,7 @@ const RegisterComponent = () => {
                 <MDBBtn
                   tag="a"
                   color="none"
-                  className="mx-3"
+                  className="mx-3 alternate-signup"
                   style={{ color: "#1266f1" }}
                 >
                   <MDBIcon fab icon="facebook-f" size="sm" />
@@ -104,7 +104,7 @@ const RegisterComponent = () => {
                 <MDBBtn
                   tag="a"
                   color="none"
-                  className="mx-3"
+                  className="mx-3 alternate-signup"
                   style={{ color: "#1266f1" }}
                 >
                   <MDBIcon fab icon="twitter" size="sm" />
@@ -113,7 +113,7 @@ const RegisterComponent = () => {
                 <MDBBtn
                   tag="a"
                   color="none"
-                  className="mx-3"
+                  className="mx-3 alternate-signup"
                   style={{ color: "#1266f1" }}
                 >
                   <MDBIcon fab icon="google" size="sm" />
@@ -122,13 +122,12 @@ const RegisterComponent = () => {
                 <MDBBtn
                   tag="a"
                   color="none"
-                  className="mx-3"
+                  className="mx-3 alternate-signup"
                   style={{ color: "#1266f1" }}
                 >
                   <MDBIcon fab icon="github" size="sm" />
-                </MDBBtn> */}
-                </div>
-   
+                </MDBBtn>
+              </div>
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
@@ -137,4 +136,4 @@ const RegisterComponent = () => {
   )
 };
 
-export default RegisterComponent
+export default RegisterComponent;
