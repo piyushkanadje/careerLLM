@@ -52,7 +52,7 @@ export const Navigation = () => {
       <div className={classes.divs}>
         <nav className={ classes.navBox + " navbar navbar-expand-lg"} >
         <NavLink className={classes.navLogo + " navbar-brand"} to="/">
-          <p className={classes.logoText}>CareerLLM</p>
+          <p className={classes.logoText}><img src="../../img/log.png"/></p>
         </NavLink>
         <button
           className="navbar-toggler"
@@ -79,8 +79,13 @@ export const Navigation = () => {
               </NavLink>
             </li>
             <li className=  "nav-item">
+              <NavLink className={ classes.navLink + " nav-link"} to="/interview">
+                InterviewChat
+              </NavLink>
+            </li>
+            <li className=  "nav-item">
               <NavLink className={ classes.navLink + " nav-link"} to="/dashboard">
-              Dashboard
+              ResumeParser
               </NavLink>
             </li>
             <li className=  "nav-item">

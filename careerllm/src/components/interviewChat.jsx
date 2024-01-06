@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { BiPlus, BiComment, BiUser, BiFace, BiSend } from "react-icons/bi";
 import "./resumeChat.css";
-function ResumeChat() {
+function InterviewChat() {
   const [text, setText] = useState("");
   const [message, setMessage] = useState(null);
   const [previousChats, setPreviousChats] = useState([]);
@@ -55,7 +55,7 @@ function ResumeChat() {
 //     },
 //     body: new URLSearchParams({ prompt: 'your_prompt_here' }),
 // });
-        const response = await fetch('http://127.0.0.1:8000/submitprompt/', {
+        const response = await fetch('http://127.0.0.1:8000/interviewprompt/', {
             method: 'POST',
             body: dataToSend,
         });
@@ -234,6 +234,6 @@ function ResumeChat() {
   );
 }
 
-export default ResumeChat;
+export default InterviewChat;
 
 

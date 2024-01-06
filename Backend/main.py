@@ -11,6 +11,7 @@ from langchain.prompts.chat import (
     ChatPromptTemplate,
     HumanMessagePromptTemplate,
     MessagesPlaceholder,
+    SystemMessagePromptTemplate
 )
 from langchain.schema import SystemMessage
 from model import resumeparser
@@ -22,8 +23,28 @@ import json
 
 
 from contextlib import asynccontextmanager
+from langchain.chat_models import ChatOpenAI
+# from model import resumeparser
+from langchain_community.document_loaders import PyMuPDFLoader
+from langchain.memory import ConversationSummaryMemory
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
+from langchain.chains import ConversationalRetrievalChain
 
+loader = PyMuPDFLoader("/Users/piyushkanadje/Desktop/careerLLM/careerLLM/Backend/model/Kaushik_Daiv_Resume_Hadoop.pdf")
+data = loader.load()
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
+all_splits = text_splitter.split_documents(data)
+vectorstore = Chroma.from_documents(documents=all_splits, embedding=HuggingFaceEmbeddings())
+llama = LlamaAPI("LL-UD6myaJsam1zJIgRwUXSrljlSoX9LIQwcWXM8HOPasgnPiFMQf5MWHKDpll926pD")
+model = ChatLlamaAPI(client=llama)
+memory = ConversationSummaryMemory(
+llm=model, memory_key="chat_history", return_messages=True
+)
+retriever = vectorstore.as_retriever()
 
+qa = ConversationalRetrievalChain.from_llm(model, retriever=retriever, memory=memory)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
@@ -32,7 +53,7 @@ async def lifespan(app: FastAPI):
     # shutdown
     print("shutdown fastapi")
 app = FastAPI(lifespan=lifespan)
-
+# router = APIRouter()
 
 app.add_middleware(
     CORSMiddleware,
@@ -45,10 +66,18 @@ app.add_middleware(
 
 
 @app.post("/submitprompt/")
-async def submit_prompt(prompt: str = Form(...)):
- 
+async def create_item(prompt: str = Form(...)):
+    print(prompt)
+    ans=''
+    while ans == '':
+        try:
+                qa = ConversationalRetrievalChain.from_llm(model, retriever=retriever, memory=memory)
+                ans = qa(prompt)['answer']
+        except:
+             pass
 
     
+<<<<<<< HEAD
     try:
         LLMresponse = llama.get(prompt)
     except:
@@ -73,7 +102,95 @@ async def match_job(request: Request):
     except:
         print("Error in matching")
     return match
+=======
+    # print(prompt)
+    # llama = LlamaAPI("LL-UD6myaJsam1zJIgRwUXSrljlSoX9LIQwcWXM8HOPasgnPiFMQf5MWHKDpll926pD")
+    # model = ChatLlamaAPI(client=llama)
+    # template_messages = [
+    # SystemMessage(content="You are a helpful assistant."),
+    # MessagesPlaceholder(variable_name="chat_history"),
+    # HumanMessagePromptTemplate.from_template("{text}"),
+    # ]
+    # prompt_template = ChatPromptTemplate.from_messages(template_messages)
+
+    # # # model_path = expanduser("llama-2-7b-chat.Q4_0.gguf")
+
+    # # # llm = LlamaCpp(
+    # # #     model_path=model_path,
+    # # #     streaming=False,
+    # # # )
+    # # model = Llama2Chat(llm=llm)
+    
+    # memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+    # chain = LLMChain(llm=model, prompt=prompt_template, memory=memory)
+    # LLMresponse = chain.run(
+    #     text= prompt
+    # )
+
+    # Replace 'Your_API_Token' with your actual API token
+    # print(LLMresponse)
+    # await asyncio.sleep(30)
+    # async with websockets.connect(
+    #     "ws://127.0.0.1:8000/chat/"
+    # ) as websocket:
+    #     # message_data = {"message": prompt}
+    #     # json_data = json.dumps(message_data)
+
+    #     await websocket.send("hello")
+        # counter = 0
+        
+        # stream_data = ""
+        # try:
+        #     while True:
+        #         counter += 1
+        #         response = await asyncio.wait_for(websocket.recv(), timeout=20)
+        #         response = json.loads(response)
+
+        #         if "error" in response:
+        #             stream_data = response["error"]
+        #             break
+        #         else:
+        #             prompt = response
+        #             break
+>>>>>>> upstream/main
                
+        # except asyncio.TimeoutError:
+        #     pass
+    return {"role": "ai","prompt": ans}
+
+@app.post("/interviewprompt/")
+async def interview_chat(prompt: str = Form(...)):
+    llama = LlamaAPI("LL-UD6myaJsam1zJIgRwUXSrljlSoX9LIQwcWXM8HOPasgnPiFMQf5MWHKDpll926pD")
+    llm = ChatLlamaAPI(client=llama)
+    with open("/Users/piyushkanadje/Desktop/careerLLM/careerLLM/Backend/model/parsed-resume.json") as f:
+        output_dict = json.load(f)
+    print(output_dict)
+
+
+    # Prompt
+    promptTemp = ChatPromptTemplate(
+        messages=[
+            SystemMessagePromptTemplate.from_template(
+                f"You are a chatbot helping user with interview preparation for following role{output_dict['Role']}."
+            ),
+            # The `variable_name` here is what must align with memory
+            MessagesPlaceholder(variable_name="chat_history"),
+            HumanMessagePromptTemplate.from_template("{question}"),
+        ]
+    )
+
+    # Notice that we `return_messages=True` to fit into the MessagesPlaceholder
+    # Notice that `"chat_history"` aligns with the MessagesPlaceholder name
+    memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+    conversation = LLMChain(llm=llm, prompt=promptTemp, verbose=True, memory=memory)
+
+    # Notice that we just pass in the `question` variables - `chat_history` gets populated by memory
+    print(prompt)
+    chat = conversation({"question": prompt})["text"]
+    print(" AI: "+ chat)
+    
+    return {"role": "ai","prompt": chat}
+                  
 
 app.mount("/", StaticFiles(directory="static", html=True), name="static")
 

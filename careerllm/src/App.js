@@ -11,6 +11,7 @@ import "./App.css";
 import { Fragment } from 'react';
 import  {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import ResumeChat from "./components/resumeChat";
+import InterviewChat from "./components/interviewChat";
 
 const router = createBrowserRouter([{
   path: '/',  
@@ -41,6 +42,9 @@ const router = createBrowserRouter([{
     {
       path:"comparison",
       element:<JobComparatorComponent />
+    },{
+      path:"/interview",
+      element:<InterviewChat />
     }
   ]
 }])

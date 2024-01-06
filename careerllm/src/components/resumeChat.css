@@ -56,6 +56,9 @@
     width: 100%;
     height: 85vh;
     overflow: auto;
+    color: white;
+    
+    font-size: 15px !important;
   }
   
   .sidebar-history p {
@@ -64,8 +67,9 @@
     background-color: #6092FC;
     padding: 0.4rem;
     color: white;
-    font-size: 0.8rem;
+    font-size: 15px;
     font-weight: 600;
+    font-size: 15px !important;
   }
   
   .sidebar li {
@@ -74,6 +78,8 @@
     flex-wrap: nowrap;
     overflow: hidden;
     gap: 0.5rem;
+    font-size: 15px !important;
+    margin: 10px 0px;
     padding: 0.5rem;
   }
   
@@ -142,7 +148,7 @@
   }
   
   .main-header li:nth-child(even) {
-    background-color: #444655;
+    background-color: #f2f2f2;
   }
   
   .main-header img:not(:nth-child(even)) {
