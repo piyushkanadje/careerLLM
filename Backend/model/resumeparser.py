@@ -48,9 +48,9 @@ def resume_parse(filename = "temp_file.pdf"):
 
     Role: What is the job role of this individual based on resume information?
 
-    Education: List all schools the individual along with the duration. Separate each education by comma.
+    Education: List all schools the individual along with the duration. Separate each education by semicolon.
 
-    Experiences: List all experiences of the individual along with duration. Separate each experience by comma.
+    Experiences: List all experiences of the individual along with duration. Separate each experience by semicolon.
 
     Skills: List all skills mentioned in the resume.
 

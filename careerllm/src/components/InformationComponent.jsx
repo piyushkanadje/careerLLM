@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import {
   MDBCard,
   MDBCardBody,
@@ -87,7 +87,28 @@ const SKILLS = [
   },
 ];
 
-const InformationComponent = () => {
+const InformationComponent = (props = {}) => {
+
+    const [education, setEducation] = React.useState([]);
+    const [experience, setExperience] = React.useState([]);
+    const [skills, setSkills] = React.useState([]);
+
+
+
+    useEffect(() => {
+        if (props.parsed_data) {
+            if (props.parsed_data["Education"] !== undefined) {
+                setEducation(props.parsed_data["Education"].split(';'));
+            }
+            if (props.parsed_data["Experience"] !== undefined) {
+                setExperience(props.parsed_data["Experience"].split(';'));
+            }
+            if (props.parsed_data["Skills"] !== undefined) {
+                setSkills(props.parsed_data["Skills"].split(';'));
+            }
+        }
+    }, [props.parsed_data]);
+
   return (
     <Fragment>
     <div class="row gx-xl-5 mb-10">
@@ -95,11 +116,11 @@ const InformationComponent = () => {
       <div class="col-lg-8 col-md-8 mb-4 mb-lg-0 order-2 order-lg-1">
       <h1>Education</h1>
 
-        {EDUCATION.map((item, index) => (
+        {education.map((item, index) => (
           <MDBCard className="w-100 mb-4">
             <MDBCardBody>
-              <MDBCardTitle>{item.title}</MDBCardTitle>
-              <MDBCardText>{item.children}</MDBCardText>
+              <MDBCardTitle>{item}</MDBCardTitle>
+              {/* <MDBCardText>{item.children}</MDBCardText> */}
             </MDBCardBody>
           </MDBCard>
         ))}
@@ -112,11 +133,11 @@ const InformationComponent = () => {
     <div className="col-lg-1 col-md-1"></div>
     <div class="col-lg-8 col-md-8 mb-4 mb-lg-0 order-2 order-lg-1">
         <h1>Experience</h1>
-      {EXPERIENCE.map((item, index) => (
+      {experience.map((item, index) => (
         <MDBCard className="w-100 mb-4">
           <MDBCardBody>
-            <MDBCardTitle>{item.title}</MDBCardTitle>
-            <MDBCardText>{item.children}</MDBCardText>
+            <MDBCardTitle>{item}</MDBCardTitle>
+            {/* <MDBCardText>{item.children}</MDBCardText> */}
           </MDBCardBody>
         </MDBCard>
       ))}
@@ -129,11 +150,11 @@ const InformationComponent = () => {
     <div className="col-lg-1 col-md-1"></div>
     <div class="col-lg-8 col-md-8 mb-4 mb-lg-0 order-2 order-lg-1">
         <h1>Skills</h1>
-      {SKILLS.map((item, index) => (
+      {skills.map((item, index) => (
         <MDBCard className="w-100 mb-4">
           <MDBCardBody>
-            <MDBCardTitle>{item.title}</MDBCardTitle>
-            <MDBCardText>{item.children}</MDBCardText>
+            <MDBCardTitle>{item}</MDBCardTitle>
+            {/* <MDBCardText>{item.children}</MDBCardText> */}
           </MDBCardBody>
         </MDBCard>
       ))}
