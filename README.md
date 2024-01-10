@@ -1,4 +1,4 @@
-# CareerLLM ( Eduhacks 2023 (Hackathon US & CHINA) - 3rd Price)
+# CareerLLM -> Eduhacks 2023 (Hackathon US & CHINA) - 3rd Price)
 
 CareerLLM is an innovative platform designed to navigate the complexities of the job search and application process. Through a user-friendly chat interface, CareerLLM offers real-time career guidance, aligns resumes with job descriptions for the best fit, and provides actionable advice to elevate your professional presentation. Prepare for interviews with confidence by accessing personalized questions and look forward to expert resume reviews for a competitive edge.
 
